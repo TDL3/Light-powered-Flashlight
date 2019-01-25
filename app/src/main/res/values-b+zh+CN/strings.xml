@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">光能手电</string>
+    <string name="no_flashlight">我天，你这手机连个闪光灯都没有，你在用诺基亚翻盖机吗？</string>
+    <string name="low_light">光源不够强大</string>
+    <string name="high_light">Let there be light！</string>
+</resources>
