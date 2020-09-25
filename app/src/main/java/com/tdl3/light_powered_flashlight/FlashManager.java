@@ -16,7 +16,7 @@ public class FlashManager {
         this.status = status;
     }
 
-    public void toggleFlashLight(boolean openOrClose) {
+    public void toggleFlashLight(boolean on) {
             try {
                 CameraManager mCameraManager = context.getSystemService(CameraManager.class);
                 String[] ids  = mCameraManager.getCameraIdList();
@@ -24,13 +24,11 @@ public class FlashManager {
                     CameraCharacteristics c = mCameraManager.getCameraCharacteristics(id);
                     Boolean flashAvailable = c.get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
                     Integer lensFacing = c.get(CameraCharacteristics.LENS_FACING);
-                    if (flashAvailable
-                            != null
+                    if (flashAvailable != null
                             && flashAvailable
-                            && lensFacing
-                            != null
+                            && lensFacing != null
                             && lensFacing == CameraCharacteristics.LENS_FACING_BACK) {
-                        mCameraManager.setTorchMode(id, openOrClose);
+                        mCameraManager.setTorchMode(id, on);
                     } else {
                         status.setText(R.string.no_flashlight);
                     }
